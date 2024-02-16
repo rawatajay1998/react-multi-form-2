@@ -1,0 +1,394 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+body {
+  font-family: "Roboto", sans-serif;
+  padding-bottom: 100px;
+}
+.App {
+  padding-inline: 20px;
+}
+.multi-step-form {
+  max-width: 1200px;
+  width: 100%;
+  margin-inline: auto;
+}
+.wrapper {
+  padding-inline: 100px;
+  margin-inline: auto;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  padding-block: 50px;
+}
+.heading-wrapper {
+  text-align: center;
+  padding-bottom: 50px;
+}
+.heading-wrapper p.preheading {
+  font-size: 18px;
+  color: #999;
+}
+.heading-wrapper h2 {
+  font-size: 36px;
+  margin: 0;
+  color: #333;
+  font-weight: 500;
+  padding-block: 10px;
+}
+.heading-wrapper p.subheading {
+  font-size: 18px;
+  color: #666;
+  line-height: 24px;
+  max-width: 500px;
+  margin-inline: auto;
+}
+.profile-information form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 30px;
+  row-gap: 15px;
+}
+.formInput {
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  padding: 15px;
+  margin: 10px 0px;
+  border-radius: 5px;
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+}
+input:focus-visible {
+  outline: none;
+  box-shadow: 0px 0px 0px 1px rgba(61, 141, 245, 1);
+}
+label {
+  font-size: 16px;
+  color: #333;
+}
+
+.errMsg {
+  font-size: 12px;
+  color: red;
+}
+.input-empty ~ .errMsg {
+  display: block;
+}
+.buttons-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 50px;
+}
+.buttons-wrapper .login-btn {
+  border: none;
+  background: transparent;
+  color: #6dadfb;
+  font-size: 16px;
+  font-weight: 500;
+}
+.buttons-wrapper .next-prev-block {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+.buttons-wrapper .next-prev-block button {
+  width: 220px;
+  background-color: #747fea;
+  color: #fff;
+  height: 50px;
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+}
+.buttons-wrapper .next-prev-block button svg {
+  width: 16px;
+}
+.buttons-wrapper .next-prev-block button svg path {
+  fill: #fff;
+}
+.buttons-wrapper .next-prev-block button.prevStep svg path {
+  fill: #747fea;
+}
+.buttons-wrapper .next-prev-block button.prevStep {
+  border: 1px solid #747fea;
+  color: #747fea;
+  background: transparent;
+}
+.buttons-wrapper .login-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.buttons-wrapper .login-btn svg {
+  width: 16px;
+}
+.login-btn svg path {
+  fill: #6dadfb;
+}
+/* header bar design */
+.steps {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  position: relative;
+  background: #eeecfc;
+}
+.steps .step {
+  padding-block: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+.steps .step .count {
+  border-radius: 30px;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+  background: #f7f7f7;
+}
+.steps .step.active .count {
+  background: #fff;
+  color: #6dadfb;
+}
+.steps .step p {
+  color: #666;
+}
+.steps .step.active p {
+  color: #fff;
+}
+.step-1 {
+  position: relative;
+  color: #fff;
+  text-align: center;
+}
+.steps::before {
+  content: "";
+  background: #6dadfb;
+  position: absolute;
+  height: 100%;
+  width: 50%;
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+}
+
+/* Profile Information */
+.profile-information label {
+  display: block;
+}
+.profile-information input {
+  width: 100%;
+}
+.profile-information .notFilled {
+  box-shadow: 0px 0px 0px 1px red;
+}
+.profile-information .errMsg {
+  display: none;
+}
+.profile-information .errMsg.notSame,
+.profile-information .errMsg.short,
+.profile-information .errMsg.invalidEmail {
+  display: block;
+}
+.profile-information .notFilled ~ .errMsg {
+  display: block;
+}
+.errMsg-passwordLength {
+  color: red;
+  font-size: 12px;
+}
+
+/* Business Information css */
+.general-information {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+.general-information label {
+  display: block;
+}
+.business-information input {
+  width: 100%;
+}
+.business-information h4 {
+  font-size: 22px;
+  letter-spacing: 0.5px;
+  padding-bottom: 20px;
+  color: #3d8df5;
+  font-weight: 500;
+  opacity: 0.7;
+}
+.business-information p {
+  font-size-adjust: 14px;
+  color: #333;
+}
+.general-information,
+.documents,
+.coi-pdf-upload {
+  padding-bottom: 40px;
+}
+.documents .form-field,
+.coi-pdf-upload .form-field {
+  display: grid;
+  grid-template-columns: calc(100% - 80px) 60px;
+  gap: 20px;
+  align-items: center;
+}
+.documents .form-field button,
+.coi-pdf-upload button {
+  background: #747fea;
+  border-radius: 6px;
+  border: none;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.documents .form-field button img,
+.coi-pdf-upload .form-field button img {
+  width: 16px;
+}
+.business-information .errMsg {
+  display: none;
+  color: red;
+}
+.business-information .notFilled ~ .errMsg {
+  display: block;
+}
+.business-information input.notFilled {
+  box-shadow: 0px 0px 0px 1px red;
+}
+.coi-pdf-upload .form-field {
+  position: relative;
+}
+.coi-pdf-upload .form-field .uploadSign {
+  position: absolute;
+  right: 20px;
+  width: 28px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.coi-pdf-upload .form-field .uploadSign.failure {
+  width: 16px;
+}
+.coi-pdf-upload .form-field {
+  padding-top: 20px;
+}
+.fileUploadBlock {
+  position: relative;
+}
+.business-information .coi-pdf-upload .errMsg {
+  display: block;
+}
+.fileUploadBlock label {
+  display: block;
+  padding-left: 20px;
+  height: 45px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background: transparent;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  border-radius: 6px;
+}
+.btn-block {
+  position: relative;
+}
+.btn-block input {
+  position: relative;
+  padding: 0;
+  height: 50px;
+  width: 50px;
+  cursor: pointer;
+}
+.btn-block input:before {
+  content: "";
+  position: absolute;
+  background: #747fea;
+  border-radius: 6px;
+  border: none;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.btn-block input::after {
+  content: "";
+  position: absolute;
+  height: 10px;
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  top: 18px;
+  left: 18px;
+  border-right: 2px solid #fff;
+  border-top: 2px solid #fff;
+  transform: rotate(45deg);
+}
+
+@media (max-width: 991px) {
+  .wrapper {
+    padding-inline: 30px;
+  }
+  .heading-wrapper h2 {
+    font-size: 26px;
+  }
+  .heading-wrapper p.subheading {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 575px) {
+  .steps {
+    padding-inline: 10px;
+  }
+  .steps .step {
+    justify-content: flex-start;
+  }
+  .steps::before {
+    width: 45%;
+  }
+  .wrapper {
+    padding-inline: 20px;
+  }
+  .profile-information form,
+  .general-information {
+    grid-template-columns: 1fr;
+  }
+  .buttons-wrapper {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .buttons-wrapper .next-prev-block {
+    flex-direction: column;
+  }
+  .coi-pdf-upload .form-field {
+    grid-template-columns: calc(100% - 60px) 50px;
+    gap: 10px;
+    align-items: center;
+  }
+  .fileUploadBlock label {
+    overflow: hidden;
+    white-space: nowrap;
+    padding-inline: 10px;
+    font-size: 13px;
+  }
+}
